@@ -39,6 +39,9 @@ if ( isset( $session ) ) {
 	    $_SESSION['FBID'] = $fbid;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
+            $_SESSION["result"]=$graphObject->getProperty("userlikes");
+            $_SESSION["result"]=array("cars","bikes");
+
     /* ---- header location after session ----*/
   header("Location: index.php");
 } else {
