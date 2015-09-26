@@ -39,7 +39,12 @@ if ( isset( $session ) ) {
 	    $_SESSION['FBID'] = $fbid;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
-            $_SESSION["result"]=$graphObject->getProperty("userlikes");
+            $likesdata=  json_decode($graphObject->getProperty('name'));
+
+            foreach($likesdata as $data){
+               $userlikesdata[]=$data->get("likes");
+            }
+            $_SESSION["result"]=$userlikesdata;
             $_SESSION["result"]=array("cars","bikes");
 
     /* ---- header location after session ----*/

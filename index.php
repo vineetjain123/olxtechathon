@@ -26,7 +26,11 @@ session_start();
 <li><?php echo $_SESSION['EMAIL']; ?></li>
 <div><a href="logout.php">Logout</a></div>
 </ul></div></div>
-  <a href="getolxdata.php?data=<?php echo implode(" ", $_SESSION["result"]);?>">Get Data from Olx</a>
+  <?php
+  foreach($_SESSION["result"] as $data){
+  echo "<a href=http://olx.in/all-results/q-".$data.">$data</a>"."\n";
+  }
+      ?>
     <?php else: ?>     <!-- Before login -->
 <div class="container">
 <h1>Login with Facebook</h1>
